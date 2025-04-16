@@ -1,6 +1,9 @@
 # Use Ubuntu as base image
 FROM ubuntu:20.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
 # Install kubectl, curl, etc.
 RUN apt-get update && apt-get install -y \
     curl \
@@ -9,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     gzip \
     jq \
     python3-pip \
+    groff \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean 
 
