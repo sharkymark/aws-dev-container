@@ -8,9 +8,8 @@ A development container with AWS tools and Kubernetes utilities pre-installed fo
 - eksctl (EKS CLI)
 - kubectl (Kubernetes CLI)
 - Helm
-- Docker support
 - Git configuration
-- VS Code extensions for Python and GitHub Copilot
+- VS Code extensions
 
 ## Environment Variables Required
 
@@ -24,13 +23,12 @@ A development container with AWS tools and Kubernetes utilities pre-installed fo
 ## Included Tools
 
 - AWS CLI
-- EKSCTL
+- AWS eksctl
 - Kubectl
 - Helm
-- Python 3
-- Docker CLI
+- Python 3 and pip
 - Git
-- Various utility tools (curl, jq, etc.)
+- cURL
 
 ## Pre-installed VS Code Extensions
 
@@ -44,7 +42,7 @@ A development container with AWS tools and Kubernetes utilities pre-installed fo
 
 MIT License
 
-Copyright (c) 2024
+Copyright (c) 2025
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
