@@ -1,0 +1,36 @@
+{
+    "name": "AWS dev container",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "mounts": [
+      "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    // https://containers.dev/features
+    "features": {  
+    },
+    "containerEnv": {
+      "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY_ID}",
+      "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+      "AWS_DEFAULT_REGION": "${localEnv:AWS_DEFAULT_REGION}",
+      "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+      "GITHUB_USER_NAME": "${localEnv:GITHUB_USER_NAME}",   
+      "GITHUB_USER_EMAIL": "${localEnv:GITHUB_USER_EMAIL}" 
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "ms-python.pylance",
+          "GitHub.copilot",
+          "saoudrizwan.claude-dev",
+          "continue.continue"
+        ],
+        "settings": { 
+          "terminal.integrated.shell.linux": "/bin/bash"
+        }  
+      }
+    },
+    "postStartCommand": "git config --global --add safe.directory $PWD && git config --global user.name \"${GITHUB_USER_NAME}\" && git config --global user.email \"${GITHUB_USER_EMAIL}\" && git config --global url.\"https://${GITHUB_TOKEN}@github.com/\".insteadOf \"https://github.com/\" && echo \"AWS CLI: $(aws --version)\" && echo \"EKSCTL CLI: $(eksctl version)\" && echo \"Helm CLI: $(helm version)\" && echo \"Kubectl CLI: $(kubectl version)\""
+    }
