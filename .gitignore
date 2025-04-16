@@ -1,0 +1,6 @@
+.aws/
+.kube/
+.helm/
+.config/
+.vscode/
+.cache/
