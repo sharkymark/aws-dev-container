@@ -59,6 +59,10 @@ This command will prompt you to enter your AWS access key, secret key, region, a
 aws iam list-users
 aws s3 ls
 aws eks list-clusters
+aws ec2 describe-regions --query "Regions[].{RegionName:RegionName}" --output table
+aws ec2 describe-availability-zones --region us-east-1 --query "AvailabilityZones[].{ZoneName:ZoneName}" --output table
+aws ec2 describe-instance-types --query "InstanceTypes[].{InstanceType:InstanceType}" --output table
+aws ec2 describe-instance-types --filters "Name=instance-type,Values=*.micro" --query "InstanceTypes[].{InstanceType:InstanceType, vCPUs:VCpuInfo.DefaultVCpus, Memory:MemoryInfo.SizeInMiB}" --output table
 ```
 
 ### Validate eksctl CLI with AWS environment variables
@@ -96,6 +100,22 @@ To validate the GitHub environment variables, you can use the following command 
 curl -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/user
 ```
 This command will return the user information associated with the provided token. If the command returns an error, it indicates that the GitHub environment variables are not set correctly.
+
+## AWS Free Tier Details
+
+As of 2025-04-16
+
+The AWS Free Tier is a program that allows you to use certain AWS services for free, up to specified limits. The free tier includes:
+- 750 hours of Amazon EC2 t2.micro or t3.micro instances each month for one year.
+- 5 GB of Amazon S3 storage.
+- 1 million requests per month for AWS Lambda.
+- 15 GB of data processing and 750 hours of load balancing per month for Amazon Elastic Load Balancing.
+- EC2 instance limits are t2.micro or t3.micro instances
+- EKS is not included in the free tier, but you can use it with the free tier EC2 instances
+- EKS control plane is $0.10 per hour
+
+
+
 ## License
 
 MIT License
