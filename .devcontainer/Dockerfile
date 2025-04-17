@@ -37,3 +37,4 @@ RUN LATEST_HELM_VERSION=$(curl -s https://api.github.com/repos/helm/helm/release
     mv linux-arm64/helm /usr/local/bin/helm && \
     rm -rf helm.tar.gz linux-arm64
 
+WORKDIR /workspaces
