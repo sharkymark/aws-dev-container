@@ -2,6 +2,8 @@
 
 A development container with AWS tools and Kubernetes utilities pre-installed for cloud development workflows.
 
+This is alternative to installing the CLIs on your local machine. This container is designed to be used with Visual Studio Code Remote - Containers extension, which allows you to develop inside a container.
+
 ## Features
 
 - AWS CLI v2
@@ -120,6 +122,15 @@ The following named volumes are configured and managed by Docker in the `devcont
 - `kubectl-config`: This volume is used to store the kubectl configuration files. It is mounted at `/root/.kube` in the container.
 - `.config`: This volume is used to store the configuration files. e.g., helm It is mounted at `/root/.config` in the container. 
 - `.cache`: This volume is used to store the cache files. e.g., helm It is mounted at `/root/.cache` in the container.
+
+## Local machine alternative
+
+If you prefer to install the AWS CLI and other tools on your local machine instead of using a container, installing the following with `brew`:
+
+```bash
+brew install awscli eksctl kubectl helm
+```
+
 
 ## License
 
