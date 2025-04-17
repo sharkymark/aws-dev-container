@@ -4,7 +4,7 @@
       "dockerfile": "Dockerfile",
       "context": ".."
     },
-    "workspaceFolder": "/workspaces",
+//    "workspaceFolder": "/workspaces",
     "mounts": [
       // AWS CLI Configuration - if aws configure is run
       "source=aws-config,target=/root/.aws,type=volume",
@@ -41,5 +41,5 @@
         }  
       }
     },
-    "postStartCommand": "git config --global --add safe.directory $PWD && git config --global user.name \"${GITHUB_USER_NAME}\" && git config --global user.email \"${GITHUB_USER_EMAIL}\" && git config --global url.\"https://${GITHUB_TOKEN}@github.com/\".insteadOf \"https://github.com/\" && echo \"AWS CLI: $(aws --version)\" && echo \"EKSCTL CLI: $(eksctl version)\" && echo \"Helm CLI: $(helm version)\" && echo \"Kubectl CLI: $(kubectl version)\""
+    "postStartCommand": "git config --global --add safe.directory $PWD && git config --global user.name \"${GITHUB_USER_NAME}\" && git config --global user.email \"${GITHUB_USER_EMAIL}\" && git config --global url.\"https://${GITHUB_TOKEN}@github.com/\".insteadOf \"https://github.com/\" && echo \"AWS CLI: $(aws --version)\" && echo \"EKSCTL CLI: $(eksctl version)\" && echo \"Helm CLI: $(helm version)\" && echo \"Kubectl CLI: $(kubectl version)\" && echo \"PWD: $(echo $PWD)\""
     }
