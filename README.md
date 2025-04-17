@@ -105,6 +105,8 @@ This command will return the user information associated with the provided token
 
 ## AWS Free Tier Details
 
+More about the AWS Free Tier can be found at [AWS Free Tier](https://aws.amazon.com/free/).
+
 ### As of 2025-04-16:
 
 The AWS Free Tier is a program that allows you to use certain AWS services for free, up to specified limits. The free tier includes:
