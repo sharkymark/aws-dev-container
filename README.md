@@ -103,7 +103,7 @@ This command will return the user information associated with the provided token
 
 ## AWS Free Tier Details
 
-As of 2025-04-16
+### As of 2025-04-16:
 
 The AWS Free Tier is a program that allows you to use certain AWS services for free, up to specified limits. The free tier includes:
 - 750 hours of Amazon EC2 t2.micro or t3.micro instances each month for one year.
@@ -114,7 +114,12 @@ The AWS Free Tier is a program that allows you to use certain AWS services for f
 - EKS is not included in the free tier, but you can use it with the free tier EC2 instances
 - EKS control plane is $0.10 per hour
 
-
+## Named Volumes
+The following named volumes are configured and managed by Docker in the `devcontainer.json` file:
+- `aws-cli-config`: This volume is used to store the AWS CLI configuration files. It is mounted at `/root/.aws` in the container. This is in case you want to use the AWS credentials file instead of environment variables.
+- `kubectl-config`: This volume is used to store the kubectl configuration files. It is mounted at `/root/.kube` in the container.
+- `.config`: This volume is used to store the configuration files. e.g., helm It is mounted at `/root/.config` in the container. 
+- `.cache`: This volume is used to store the cache files. e.g., helm It is mounted at `/root/.cache` in the container.
 
 ## License
 

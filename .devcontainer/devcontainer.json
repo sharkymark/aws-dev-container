@@ -4,7 +4,17 @@
       "dockerfile": "Dockerfile",
       "context": ".."
     },
+    "workspaceFolder": "/workspaces",
     "mounts": [
+      // AWS CLI Configuration - if aws configure is run
+      "source=aws-config,target=/root/.aws,type=volume",
+  
+      // kubectl Configuration
+      "source=kube-config,target=/root/.kube,type=volume",
+
+      // persist other config files including helm
+      "source=config,target=/root/.config,type=volume",
+      "source=cache,target=/root/.cache,type=volume"
     ],
     // https://containers.dev/features
     "features": {  
